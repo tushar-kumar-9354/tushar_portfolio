@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: tushar-kumarportfolio
+    env: python
+    buildCommand: ""
+    startCommand: waitress-serve --port=$PORT tushar_portfolio.tushar_portfolio.wsgi:application
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: ALLOWED_HOSTS
+        value: tushar-kumar-portfolio.onrender.com,127.0.0.1,localhost
