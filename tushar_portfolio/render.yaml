@@ -2,8 +2,9 @@ services:
   - type: web
     name: tushar-portfolio-kumar  # must be unique; change if taken
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn tushar_portfolio.wsgi:application"
+    buildCommand: cd tushar_portfolio && pip install -r requirements.txt
+    startCommand: gunicorn tushar_portfolio.wsgi:application
+
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: tushar_portfolio.settings
