@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="min-h-screen px-8 py-16" id="projects">
+  <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">🚀 My Projects</h2>
+  <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+    {% for p in projects %}
+      <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 transition-transform" data-aos="zoom-in">
+        <h3 class="text-xl font-semibold mb-2">{{ p.name|capfirst }}</h3>
+        <p class="text-sm mb-4">{{ p.desc }}</p>
+        <p class="text-xs  mb-4">{{ p.lang }}</p>
+        <div class="flex gap-4">
+          <a href="{{ p.url }}" target="_blank" class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">GitHub</a>
+          {% if p.live %}
+            <a href="{{ p.live }}" target="_blank" class="bg-green-500 px-4 py-2 rounded hover:bg-green-600">Live Demo</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<footer class="bg-gray-900 text-white py-6 mt-16">
+  <body class="bg-gray-900 text-white font-sans antialiased">
+  <!-- Animated Navigation -->
+  
+    <div class="max-w-7xl mx-auto">
+      <ul class="flex justify-center gap-8 text-white">
+        <li class="group">
+          <a href="https://github.com/tushar-kumar-9354" class="flex items-center gap-2 px-3 py-2 hover:text-indigo-400 transition-colors">
+            <i class="fab fa-github text-sm"></i>
+            <span class="text-sm font-medium">GitHub</span>
+          </a>
+          <div class="h-0.5 bg-indigo-500 w-0 group-hover:w-full transition-all duration-300 mt-1"></div>
+        </li>
+
+</footer>
+{% endblock %}
