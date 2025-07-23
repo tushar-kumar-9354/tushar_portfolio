@@ -3,12 +3,12 @@ services:
     name: tushar-portfolio
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn tushar_portfolio.wsgi:application"
+    startCommand: "gunicorn tushar_portfolio.tushar_portfolio.wsgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: tushar_portfolio.settings
       - key: PYTHON_VERSION
-        value: "3.13.5"   # or your preferred version, like "3.11"
+        value: "3.13.5" 
       - key: SECRET_KEY
         value: "django-insecure-zsr8spkncp87*!@s*nduuyul+i4x5c8cqbwa4ovw!^!v@0%m#a"  # IMPORTANT: replace this with a real secret key
       - key: DEBUG

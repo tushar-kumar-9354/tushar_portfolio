@@ -5,8 +5,8 @@ certifi==2025.7.14
 charset-normalizer==3.4.2
 colorama==0.4.6
 dj-database-url==1.2.0
-Django==5.2.4
-django-environ==0.12.0
+django
+django-environ
 filelock==3.18.0
 fsspec==2025.7.0
 google-ai-generativelanguage==0.6.15
@@ -20,7 +20,7 @@ grpcio==1.73.1
 waitress==2.1.2
 
 grpcio-status==1.71.2
-gunicorn==23.0.0
+gunicorn
 httplib2==0.22.0
 huggingface-hub==0.33.4
 idna==3.10
