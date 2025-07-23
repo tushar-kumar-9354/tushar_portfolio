@@ -1,1 +1,1 @@
-web: gunicorn tushar_portfolio.wsgi
+gunicorn tushar_portfolio.wsgi:application
