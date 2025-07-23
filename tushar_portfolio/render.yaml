@@ -1,15 +1,15 @@
 services:
   - type: web
-    name: tushar-portfolio-kumar  # must be unique; change if taken
+    name: tushar-portfolio-kumar
     env: python
-    buildCommand: cd tushar_portfolio && pip install -r requirements.txt
-    startCommand: gunicorn tushar_portfolio.wsgi:application
+    buildCommand: pip install -r requirements.txt
+    startCommand: waitress-serve --port=$PORT tushar_portfolio.wsgi:application
 
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: tushar_portfolio.settings
       - key: SECRET_KEY
-        value: "django-insecure-zsr8spkncp87*!@s*nduuyul+i4x5c8cqbwa4ovw!^!v@0%m#a"
+        value: django-insecure-zsr8spkncp87*!@s*nduuyul+i4x5c8cqbwa4ovw!^!v@0%m#a
       - key: DEBUG
         value: "False"
       - key: ALLOWED_HOSTS
