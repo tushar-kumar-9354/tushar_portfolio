@@ -7,3 +7,11 @@ services:
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: tushar_portfolio.settings
+      - key: PYTHON_VERSION
+        value: "3.10"   # or your preferred version, like "3.11"
+      - key: SECRET_KEY
+        value: "django-insecure-zsr8spkncp87*!@s*nduuyul+i4x5c8cqbwa4ovw!^!v@0%m#a"  # IMPORTANT: replace this with a real secret key
+      - key: DEBUG
+        value: "False"  # Set to False for production
+
+staticPublishPath: staticfiles
