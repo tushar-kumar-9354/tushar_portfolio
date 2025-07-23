@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: tushar-kumarportfolio
+    name: tushar-kumar-portfolio
     env: python
     buildCommand: ""
     startCommand: waitress-serve --port=$PORT tushar_portfolio.tushar_portfolio.wsgi:application
