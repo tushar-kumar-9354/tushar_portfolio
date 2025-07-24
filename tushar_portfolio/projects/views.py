@@ -1,16 +1,25 @@
-import requests
-from django.shortcuts import render
+import os
 import requests
 from django.http import JsonResponse
+
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 def projects_view(request):
     try:
         print("📡 Fetching GitHub repos...")
 
+        headers = {
+            "Accept": "application/vnd.github.v3+json"
+        }
+
+        # Add Authorization only if token exists
+        if GITHUB_TOKEN:
+            headers["Authorization"] = f"token {GITHUB_TOKEN}"
+
         resp = requests.get(
             "https://api.github.com/users/tushar-kumar-9354/repos",
             params={"per_page": 12, "sort": "pushed"},
-            headers={"Accept": "application/vnd.github.v3+json"},
+            headers=headers,
             timeout=5
         )
 
@@ -27,21 +36,18 @@ def projects_view(request):
         print(f"❌ Error fetching GitHub projects: {e}")
         repos = []
 
-    # Filter out forks and transform into simplified project data
-    projects = []
-    for r in repos:
-        if not r.get("fork", False):
-            project_data = {
-                "name": r.get("name", ""),
-                "desc": r.get("description", ""),
-                "url": r.get("html_url", "#"),
-                "live": r.get("homepage", ""),
-                "lang": r.get("language", ""),
-            }
-            print(f"🔍 Processed project: {project_data['name']}")
-            projects.append(project_data)
+    # Transform
+    projects = [
+        {
+            "name": r.get("name", ""),
+            "desc": r.get("description", ""),
+            "url": r.get("html_url", "#"),
+            "live": r.get("homepage", ""),
+            "lang": r.get("language", ""),
+        }
+        for r in repos
+        if not r.get("fork", False)
+    ]
 
     print(f"🎯 Final projects to show: {len(projects)}")
-
     return JsonResponse({"projects": projects})
-
