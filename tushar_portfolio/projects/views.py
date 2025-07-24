@@ -1,5 +1,7 @@
 import requests
 from django.http import JsonResponse
+#last check
+
 
 def projects_view(request):
     try:
