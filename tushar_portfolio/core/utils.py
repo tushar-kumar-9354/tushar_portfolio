@@ -3,14 +3,20 @@ import fitz  # PyMuPDF
 
 def extract_resume_text():
     try:
-        resume_path = staticfiles_storage.path("resume/TUSHAR_KUMAR_SOFTWARE_DEVELOPER_RESUME.pdf")
+
+        resume_path = staticfiles_storage.path("resume/TUSHAR KUMAR_SOFTWARE_DEVELOPER_RESUME.pdf")
+
         text = ""
+        print("this is actucal path",resume_path)
         doc = fitz.open(resume_path)
         for page in doc:
             text += page.get_text()
+        print(text)
         return text
+
     except Exception as e:
         return f"Error loading resume: {e}"
+print(extract_resume_text)
 
 def read_personality():
     try:
