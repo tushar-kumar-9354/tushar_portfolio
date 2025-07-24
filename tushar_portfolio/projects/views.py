@@ -38,4 +38,4 @@ def projects_view(request):
             'live': ''
         },
     ]
-    return render(request, 'project.html', {'projects': projects})
+    return render(request, 'projects.html', {'projects': projects})
