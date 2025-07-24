@@ -1,54 +1,41 @@
 import requests
-from django.http import JsonResponse
-#last check
+from bs4 import BeautifulSoup
 
-
-def projects_view(request):
+def fetch_github_repos_brute(username):
+    url = f"https://github.com/{username}?tab=repositories"
+    headers = {
+        'User-Agent': 'Mozilla/5.0'
+    }
+    repos = []
     try:
-        print("📡 Fetching GitHub repos...")
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
 
-        # No Authorization header (using public access)
-        headers = {
-            "Accept": "application/vnd.github.v3+json"
-        }
+        soup = BeautifulSoup(response.text, 'html.parser')
+        repo_list = soup.find_all('li', {'itemprop': 'owns'})
 
-        resp = requests.get(
-            "https://api.github.com/users/tushar-kumar-9354/repos",
-            params={"per_page": 12, "sort": "pushed"},
-            headers=headers,
-            timeout=5
-        )
+        for repo in repo_list:
+            name = repo.find('a', itemprop='name codeRepository')
+            description = repo.find('p', itemprop='description')
+            lang = repo.find('span', itemprop='programmingLanguage')
 
-        print(f"📦 Response Status Code: {resp.status_code}")
+            repo_info = {
+                'name': name.text.strip() if name else None,
+                'url': f"https://github.com{name['href']}" if name else None,
+                'description': description.text.strip() if description else "No description",
+                'language': lang.text.strip() if lang else "Unknown"
+            }
+            repos.append(repo_info)
 
-        # Handle rate limiting (403 without token)
-        if resp.status_code == 403:
-            print("❌ Hit GitHub rate limit (403) — unauthenticated API requests are limited to 60/hour.")
-            return JsonResponse({"error": "GitHub rate limit exceeded (unauthenticated)"}, status=429)
+        return repos
 
-        if resp.status_code == 200:
-            repos = resp.json()
-            print(f"✅ Total repos fetched: {len(repos)}")
-        else:
-            print("⚠️ GitHub API returned a non-200 response")
-            repos = []
+    except requests.exceptions.RequestException as e:
+        print("❌ Error fetching GitHub repos:", e)
+        return []
 
-    except Exception as e:
-        print(f"❌ Error fetching GitHub projects: {e}")
-        repos = []
+# Example usage:
+username = "tushar-kumar-9354"
+projects = fetch_github_repos_brute(username)
 
-    # Transform
-    projects = [
-        {
-            "name": r.get("name", ""),
-            "desc": r.get("description", ""),
-            "url": r.get("html_url", "#"),
-            "live": r.get("homepage", ""),
-            "lang": r.get("language", ""),
-        }
-        for r in repos
-        if not r.get("fork", False)
-    ]
-
-    print(f"🎯 Final projects to show: {len(projects)}")
-    return JsonResponse({"projects": projects})
+for p in projects:
+    print(f"🔹 {p['name']} ({p['language']})\n   {p['description']}\n   {p['url']}\n")
