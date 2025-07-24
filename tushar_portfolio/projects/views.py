@@ -1,20 +1,14 @@
-import os
 import requests
 from django.http import JsonResponse
-
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 def projects_view(request):
     try:
         print("📡 Fetching GitHub repos...")
 
+        # No Authorization header (using public access)
         headers = {
             "Accept": "application/vnd.github.v3+json"
         }
-
-        # Add Authorization only if token exists
-        if GITHUB_TOKEN:
-            headers["Authorization"] = f"token {GITHUB_TOKEN}"
 
         resp = requests.get(
             "https://api.github.com/users/tushar-kumar-9354/repos",
@@ -24,6 +18,11 @@ def projects_view(request):
         )
 
         print(f"📦 Response Status Code: {resp.status_code}")
+
+        # Handle rate limiting (403 without token)
+        if resp.status_code == 403:
+            print("❌ Hit GitHub rate limit (403) — unauthenticated API requests are limited to 60/hour.")
+            return JsonResponse({"error": "GitHub rate limit exceeded (unauthenticated)"}, status=429)
 
         if resp.status_code == 200:
             repos = resp.json()
