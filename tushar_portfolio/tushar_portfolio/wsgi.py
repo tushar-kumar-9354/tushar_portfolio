@@ -9,9 +9,14 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 
 print("THIS IS MY WSGI.PY folder 00")
 import os
+
+from tushar_portfolio.tushar_portfolio.settings import BASE_DIR
 print("THIS IS MY WSGI.PY folder 01 and error comes after this line")
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tushar_portfolio.settings')
 
 application = get_wsgi_application()
+from whitenoise import WhiteNoise
+application = WhiteNoise(application, root=os.path.join(BASE_DIR, 'staticfiles'))
+
