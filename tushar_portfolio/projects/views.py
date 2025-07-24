@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def projects(request):
+def projects_view(request):
     projects = [
         {
             'name': 'AI Resume Optimizer',
