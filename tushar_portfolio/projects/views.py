@@ -45,15 +45,3 @@ def projects_view(request):
 
     return JsonResponse({"projects": projects})
 
-
-    # Optional: Fallback project if empty (helps in production)
-    if not projects:
-        projects = [{
-            "name": "Demo Project",
-            "desc": "Fallback demo project in case GitHub API fails.",
-            "url": "https://github.com/tushar-kumar-9354",
-            "live": "",
-            "lang": "Python"
-        }]
-
-    return render(request, "projects.html", {"projects": projects})
