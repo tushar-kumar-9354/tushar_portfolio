@@ -13,8 +13,8 @@ build/
 local_settings.py
 db.sqlite3
 media/
-staticfiles/
-static_root/
+
+
 .env
 
 # VS Code
