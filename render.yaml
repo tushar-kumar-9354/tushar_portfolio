@@ -3,7 +3,8 @@ services:
     name: tushar-portfolio
     env: python
     buildCommand: ""
-    startCommand: waitress-serve --port=$PORT tushar_portfolio.wsgi:application
+    startCommand: waitress-serve --port=$PORT tushar_portfolio.tushar_portfolio.wsgi:application
+
     envVars:
       - key: DEBUG
         value: "False"

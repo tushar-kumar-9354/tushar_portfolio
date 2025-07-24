@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT tushar_portfolio.wsgi:application
+waitress-serve --port=$PORT tushar_portfolio.tushar_portfolio.wsgi:application
