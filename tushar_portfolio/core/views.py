@@ -9,7 +9,6 @@ print("THIS IS MY ASK_ASSISTANT.PY 00")
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
 from .utils import extract_resume_text, read_personality
 
 @csrf_exempt
@@ -18,11 +17,8 @@ def ask_assistant(request):
         body = json.loads(request.body)
         user_input = body.get("message", "")
 
-        resume_path = os.path.join("static/resume", "TUSHAR KUMAR_SOFTWARE_DEVELOPER_RESUME.pdf")
-        personality_path = os.path.join("static/personality", "personality.txt")
-
-        resume_text = extract_resume_text(resume_path)
-        read_personality_text = read_personality(personality_path)
+        resume_text = extract_resume_text()  # ✅ NO ARGUMENTS
+        read_personality_text = read_personality()  # ✅ NO ARGUMENTS
 
         # Build prompt
         prompt = f"""
