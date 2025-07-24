@@ -1,6 +1,6 @@
 import requests
 from django.shortcuts import render
-
+print("THIS IS MY PROJECTS.VIEWS.PY 00")
 def projects_view(request):
     resp = requests.get(
         "https://api.github.com/users/tushar-kumar-9354/repos",

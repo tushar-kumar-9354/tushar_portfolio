@@ -10,4 +10,6 @@ services:
       - key: SECRET_KEY
         value: django-insecure-zsr8spkncp87*!@s*nduuyul+i4x5c8cqbwa4ovw!^!v@0%m#a
       - key: ALLOWED_HOSTS
-        value: tushar-kumar-portfolio.onrender.com,127.0.0.1,localhost
+      
+        value: ['127.0.0.1', 'localhost']
+

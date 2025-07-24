@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from dotenv import load_dotenv
 from .utils import extract_resume_text 
-
+print("THIS IS MY ASK_ASSISTANT.PY 00")
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))

@@ -1,7 +1,7 @@
 from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render
 from .forms import ContactForm
-
+print("THIS IS MY CONTACT.VIEWS.PY 00")
 def contact_view(request):
     success = False
     error = None
