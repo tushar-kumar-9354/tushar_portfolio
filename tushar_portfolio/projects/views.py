@@ -7,14 +7,14 @@ def projects_view(request):
             'desc': 'My personal portfolio website showcasing my projects, skills, and experience.',
             'url': 'https://github.com/tushar-kumar-9354/tushar_portfolio',
             'lang': 'HTML, CSS, JavaScript, Django',
-            'live': ''
+            'live': 'https://tushar-portfolio-1.onrender.com/'
         },
         {
             'name': 'ASTRO-GPT',
             'desc': 'Interactive space exploration tool with AI-generated information about celestial bodies.',
             'url': 'https://github.com/tushar-kumar-9354/ASTRO-GPT',
             'lang': 'Python, Three.js, Django, Gemini API',
-            'live': ''
+            'live': 'https://astro-gpt-2.onrender.com/'
         },
         {
             'name': 'Resume Optimizer',
@@ -42,7 +42,7 @@ def projects_view(request):
             'desc': 'Collection of Python scripts and projects demonstrating advanced Python concepts.',
             'url': 'https://github.com/tushar-kumar-9354/...PYTHON_MASTERY...',
             'lang': 'Python',
-            'live': ''
+            'live': 'https://python-mastery.onrender.com/'
         },
         {
             'name': 'Auto News Summarizer',
