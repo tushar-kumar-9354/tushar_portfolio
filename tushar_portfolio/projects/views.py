@@ -24,19 +24,20 @@ def projects_view(request):
             'live': 'https://resume-optimizer-fcod.onrender.com/'
         },
         {
-            'name': 'Complaint Registration System',
-            'desc': 'Web application for registering and tracking complaints or service requests.',
-            'url': 'https://github.com/tushar-kumar-9354/complaint_registration',
-            'lang': 'Python, Django, PostgreSQL',
-            'live': ''
-        },
-        {
             'name': 'PYTHON MASTERY',
             'desc': 'Collection of Python scripts and projects demonstrating advanced Python concepts.',
             'url': 'https://github.com/tushar-kumar-9354/...PYTHON_MASTERY...',
             'lang': 'Python',
             'live': 'https://python-mastery.onrender.com/'
         },
+        {
+            'name': 'Complaint Registration System',
+            'desc': 'Web application for registering and tracking complaints or service requests.',
+            'url': 'https://github.com/tushar-kumar-9354/complaint_registration',
+            'lang': 'Python, Django, PostgreSQL',
+            'live': ''
+        },
+        
         {
             'name': 'AI Agent Workspace',
             'desc': 'Platform for building and testing AI agents with various capabilities.',
