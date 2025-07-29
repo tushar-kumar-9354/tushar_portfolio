@@ -4,7 +4,7 @@ import fitz  # PyMuPDF
 def extract_resume_text():
     try:
 
-        resume_path = staticfiles_storage.path("resume/TUSHAR KUMAR_SOFTWARE_DEVELOPER_RESUME.pdf")
+        resume_path = staticfiles_storage.path("resume/TUSHAR_KUMAR_SOFTWARE_DEVELOPER_RESUME.pdf")
 
         text = ""
         print("this is actucal path",resume_path)
