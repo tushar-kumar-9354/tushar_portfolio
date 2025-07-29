@@ -21,10 +21,7 @@ if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 print("THIS IS MY SETTINGS.PY secret key 00")
-
-SECRET_KEY='django-insecure-zsr8spkncp87*!@s*nduuyul+i4x5c8cqbwa4ovw!^!v@0%m#a'
-
-
+SECRET_KEY = config('SECRET_KEY') 
 print("THIS IS MY SETTINGS.PY secret_key", SECRET_KEY)
 
 
@@ -146,3 +143,6 @@ EMAIL_USE_TLS='True'
 print("everthing is fine in settings.py")
 
 GEMINI_API_KEY='AIzaSyByxCu6P-L3oSbsB_IH0SANNa77s-E9iLc'
+
+  
+  
