@@ -35,7 +35,7 @@ def projects_view(request):
             'desc': 'Web application for registering and tracking complaints or service requests.',
             'url': 'https://github.com/tushar-kumar-9354/complaint_registration',
             'lang': 'Python, Django, PostgreSQL',
-            'live': ''
+            'live': 'https://complaint-registration-nnuw.onrender.com/'
         },
         
         {
