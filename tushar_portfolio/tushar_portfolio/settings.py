@@ -140,9 +140,9 @@ EMAIL_HOST_USER='jangratushar348@gmail.com'
 EMAIL_HOST_PASSWORD='xbay pqvn puve kbiw'
 EMAIL_USE_TLS='True'
 
-print("everthing is fine in settings.py")
+print("everthing is fine in settings.py") 
 
-GEMINI_API_KEY='AIzaSyByxCu6P-L3oSbsB_IH0SANNa77s-E9iLc'
+GEMINI_API_KEY='AIzaSyD5QuAAmVq-Dt-LF06bV_8cK1GIJj7d2-M'
 
   
   
