@@ -21,7 +21,7 @@ if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 print("THIS IS MY SETTINGS.PY secret key 00")
-SECRET_KEY = config('SECRET_KEY') 
+SECRET_KEY = "9d0@1x0yc7m00$=%48f-6beb772c5tq+3aq&odh9@*+nnn^@bq"
 print("THIS IS MY SETTINGS.PY secret_key", SECRET_KEY)
 
 
