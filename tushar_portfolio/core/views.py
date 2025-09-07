@@ -44,7 +44,7 @@ If the question is general or technical, respond using your own knowledge.
 """
 
         try:
-            model = genai.GenerativeModel("gemini-2.5-flash")
+            model = genai.GenerativeModel("gemini-2.0-flash")
             response = model.generate_content(prompt)
             return JsonResponse({"reply": response.text})
         except Exception as e:

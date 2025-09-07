@@ -144,5 +144,7 @@ print("everthing is fine in settings.py")
 
 GEMINI_API_KEY='AIzaSyD5QuAAmVq-Dt-LF06bV_8cK1GIJj7d2-M'
 
+
+
   
   
